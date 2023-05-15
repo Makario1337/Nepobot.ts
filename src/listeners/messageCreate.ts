@@ -55,8 +55,7 @@ function onMessageCreated(client: Client): void {
     // console.log(buildRegex("gmi", ...regex).test("nigggÈr"))
     client.on('messageCreate', async (message) => {
         const filter = buildRegex("gmi", ...regex)
-        if(filter.test(message.content))
-        {
+        if (filter.test(message.content)) {
             console.log("bad word found")
         }
     })
