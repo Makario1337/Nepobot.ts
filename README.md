@@ -10,8 +10,8 @@ Personal Discord Bot to manage our discord server.
 
 Contributors names and contact info
 
-ex. [@Makario1337]
-ex. [@uniboy]
+* [@Makario1337](https://github.com/Makario1337)
+* [@uniboy](https://github.com/uniboy)
 
 ## Version History
 
