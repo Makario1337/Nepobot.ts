@@ -1,7 +1,7 @@
 FROM ghcr.io/linuxserver/baseimage-alpine:3.17
 LABEL maintainer="Makario1337"
 
-ENV src=/src
+ENV src=/app
 
 
 RUN \
@@ -19,6 +19,7 @@ RUN \
 
 
 # Copy local files
-COPY . /root
+COPY root/ /
+COPY .env /app
 WORKDIR ${src}
-RUN npm install . && npm start
+RUN npm install .

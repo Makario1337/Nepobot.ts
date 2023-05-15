@@ -1,7 +1,8 @@
+#!/usr/bin/with-contenv bash
 echo "Starting Bot...."
 for (( ; ; )); do
 	let i++
-	npm start --prefix /app/src
+	npm start --prefix /app
 done
 
 exit $?
