@@ -1,0 +1,7 @@
+echo "Starting Bot...."
+for (( ; ; )); do
+	let i++
+	npm start --prefix /app/src
+done
+
+exit $?
