@@ -19,7 +19,8 @@
   },
   "homepage": "https://github.com/Makario1337/Nepobot.ts#readme",
   "dependencies": {
-    "discord.js": "^14.11.0"
+    "discord.js": "^14.11.0",
+    "dotenv": "^16.0.3"
   },
   "devDependencies": {
     "@types/node": "^20.1.4",
