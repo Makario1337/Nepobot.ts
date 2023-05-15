@@ -20,4 +20,4 @@ Contributors names and contact info
 
 ## License
 
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
+This project is licensed under the GNU General Public License v3.0 License - see the LICENSE.md file for details
