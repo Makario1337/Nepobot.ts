@@ -1,7 +1,6 @@
 import { Client } from "discord.js"
 import * as dotenv from 'dotenv'
-
-console.log("Bot is starting")
+import onReady from "./listeners/ready"
 
 dotenv.config({ path: './.env' })
 
@@ -9,6 +8,6 @@ const client = new Client({
     intents: []
 })
 
-console.log(client)
+onReady(client)
 
-console.log(process.env.DISCORD_TOKEN)
+client.login(process.env.DISCORD_TOKEN)
