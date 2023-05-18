@@ -1,11 +1,12 @@
 import { Client, GatewayIntentBits } from "discord.js"
-import { Database } from 'sqlite3'
 import * as dotenv from 'dotenv'
 import onReady from "./listeners/ready"
 import onMessageCreated from "./listeners/messageCreate"
+import { db, InitGlobals } from "./utils/globals"
 
 dotenv.config({ path: './.env' });
-const db = new Database('db.sqlite');
+
+InitGlobals()
 
 db.exec(
     `CREATE TABLE IF NOT EXISTS "badwords"
@@ -13,8 +14,8 @@ db.exec(
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         word VARCHAR(100) NOT NULL
     );`
-)
-
+    )
+    
 const client = new Client({
     intents: [
         GatewayIntentBits.Guilds,
@@ -23,6 +24,7 @@ const client = new Client({
         GatewayIntentBits.GuildMembers
     ]
 })
+
 
 onReady(client)
 onMessageCreated(client)
