@@ -11,9 +11,7 @@ RUN \
 		sqlite-libs  \
 		nodejs  \
 		npm && \
-	echo "** Cloning Git Repo **" && \
 	mkdir -p ${src} && \
-	git clone https://github.com/Makario1337/Nepobot.ts.git ${src} && \
 	chgrp users ${src} && \
 	chmod g+w ${src} 
 
@@ -22,4 +20,4 @@ RUN \
 COPY root/ /
 COPY .env /app
 WORKDIR ${src}
-RUN npm install .
+
