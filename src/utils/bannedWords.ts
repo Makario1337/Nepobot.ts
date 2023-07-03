@@ -53,7 +53,7 @@ export function setBannedWords(words: string[]) {
         regexWords.push(regexWord)
     }
     console.log(regexWords)
-    bannedWords = new RegExp(regexWords.map(word => `(${word})`).join("|"), "gmi")
+    bannedWords = new RegExp(regexWords.map(word => `(${word})`).join("|"), "mi")
 }
 
 function updateBannedWordsCallback(error: Error | null, rows: WordOnlyColumn[]) {

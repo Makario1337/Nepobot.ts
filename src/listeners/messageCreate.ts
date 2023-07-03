@@ -7,9 +7,9 @@ function onMessageCreated(client: Client): void {
             return
         }
 
-        console.log(bannedWords, message.content, bannedWords.test(message.content), message.deletable, (bannedWords.test(message.content) && message.deletable))
+        const content = message.content.trim()
 
-        if (bannedWords.test(message.content.trim()) && message.deletable) {
+        if (bannedWords.test(content) && message.deletable) {
             await message.delete()
         }
     })
