@@ -7,8 +7,10 @@ function onMessageCreated(client: Client): void {
             return
         }
 
-        if (bannedWords.test(message.content) && message.deletable) {
-            message.delete()
+        console.log(bannedWords, message.content, bannedWords.test(message.content), message.deletable, (bannedWords.test(message.content) && message.deletable))
+
+        if (bannedWords.test(message.content.trim()) && message.deletable) {
+            await message.delete()
         }
     })
 }

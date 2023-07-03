@@ -7,7 +7,7 @@ interface WordOnlyColumn {
 export let bannedWords: RegExp
 
 const chars = {
-    a: "[aаạąäàáą]",
+    a: "[aаạąäàáąáà]",
     b: "[b]",
     c: "[cсƈċ]",
     d: "[dԁɗ]",
@@ -49,10 +49,11 @@ export function setBannedWords(words: string[]) {
                 regexWord += (chars as any)[char] // casting is fine here because it has already been checked if the index exists
             else
                 regexWord += char
-            regexWords.push(regexWord)
         }
+        regexWords.push(regexWord)
     }
-    bannedWords = buildRegex("gmi", ...regexWords)
+    console.log(regexWords)
+    bannedWords = new RegExp(regexWords.map(word => `(${word})`).join("|"), "gmi")
 }
 
 function updateBannedWordsCallback(error: Error | null, rows: WordOnlyColumn[]) {
@@ -63,18 +64,4 @@ function updateBannedWordsCallback(error: Error | null, rows: WordOnlyColumn[]) 
 
     const words = rows.map(row => row.word)
     setBannedWords(words)
-}
-
-// Combines multiple regexp and their flags
-function buildRegex(flags: string, ...args: Array<RegExp | string>): RegExp {
-    args.forEach((arg) => {
-        if (typeof arg != "string")
-            [...arg.flags].forEach((flag) => {
-                if (flags.indexOf(flag) < 0)
-                    return
-                flags += flag
-            })
-    })
-
-    return new RegExp(args.map(arg => typeof arg == "string" ? arg : arg.source).join("|"), flags)
 }
